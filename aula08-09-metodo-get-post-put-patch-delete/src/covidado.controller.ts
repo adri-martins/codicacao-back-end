@@ -21,7 +21,7 @@ export class ConvidadosController {
     }
 
 
-    @Patch()
+    @Patch(':id')
     atualizarIdade(@Param('id') id: number, @Body('idade') idade: number){
         console.log(`[ADMNISTRATOR]: Atualizando a idade do ID ${id}`);
             return this.convidadosService.atualizarIdade(+id, idade);
@@ -29,7 +29,7 @@ export class ConvidadosController {
 
     @Delete(':id')
     @HttpCode(204)
-    remover(@Param ('id') id:number){
+    remover(@Param ('id') id:string){
         console.log(`[ADMNISTRADOR]: Remover Convidado ID: ${id}`);
         this.convidadosService.removerConvidado(+id);
         }
