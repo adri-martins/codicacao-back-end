@@ -1,0 +1,4 @@
+$kind: http-request
+url: localhost:3000/convidados
+method: GET
+order: 1790019074578
