@@ -119,6 +119,37 @@ A requisição poderá chegar ao controller.
 Resposta esperada:
 {
   "message": "Bem-vindo ao Painel administrativo!",
+
   "data": "2026-..."
+
+  🔑 Rota secreta
+
+Também foi criada uma rota chamada `/secret`, responsável por apresentar uma mensagem de boas-vindas ao usuário.
+
+# 🔐 Rota secreta
+@Get('secret')
+getSecret() {
+  return {
+    mensagem: 'Bem-vindo a rota secreta!',
+    date: new Date(),
+  };
+}
+# 📩 Resposta da rota
+{
+  "mensagem": "Bem-vindo a rota secreta!",
+  "date": "2026-09-29T..."
+}
+
+# 🧪 Como testar
+
+Faça uma requisição:
+`GET http://localhost:3000/secret`
+
+Resultado esperado:
+200 OK
+{
+  "mensagem": "Bem-vindo a rota secreta!",
+  "date": "..."
+}
 }
 
