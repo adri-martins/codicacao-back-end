@@ -9,3 +9,4 @@ import { ProdutosController } from './produtos/produtos.controller.js';
   providers: [AppService],
 })
 export class AppModule {}
+ 
