@@ -1,0 +1,14 @@
+{
+    "Texto": "Sistema escolar",
+    "Autor": "Adrieli Martins",
+    "Data": "20-10-2026",
+    "Sistema":[
+        "Entidades-chaves: Agendamento, cadastro de usuario, administrador"
+    ],
+    "Mapemanto de coleções": [
+        {"Agendamento": "sala, horarios, data de reserva"},
+        {"cadastro de usuario": "email, senha"},
+        {"administrador": "permissões, acesso ao sistema"}
+    ]
+
+}

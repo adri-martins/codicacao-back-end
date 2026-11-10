@@ -1,0 +1,15 @@
+{
+    "Texto":"Microbiologia",
+    "Autor":"Alfredo",
+    "Data":"27-11-2026",
+    "array": [
+        {"curtidas": 20.000},
+        {"autor": "Adri"},
+        {"comentarios": "Publicação perfeita"}
+    ],
+    "array":[
+        {"curtidas": 10.000},
+        {"autor": "Manuela"},
+        {"comentarios": "Adorei"}
+    ]
+}
