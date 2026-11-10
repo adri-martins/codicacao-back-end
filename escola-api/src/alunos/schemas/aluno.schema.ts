@@ -16,6 +16,7 @@ export class Aluno {
 
   @Prop({
     required: true,
+    unique: true
   })
   matricula: string;
 @Prop([
