@@ -14,12 +14,27 @@ export class AlunosService {
     return createdAluno.save();
   }
 
-async findAllPage(page: number, limit: number){
+async findAllPage(page: number, limit: number, nome?: string, curso?: string){
       const skip = (page - 1)* limit;
+      
+
+     
+      const filtro: any = {};
+ if(curso){
+        filtro.cursos = curso;
+      }
+      if(nome){
+        filtro.nome = { 
+          $regex: new RegExp(nome, 'i'),
+         };
+      }
+
       const [data, total]= await Promise.all([
-        this.alunoModel.find().skip(skip).limit(limit).exec(),
-        this.alunoModel.countDocuments().exec()
+        this.alunoModel.find(filtro).skip(skip).limit(limit).exec(),
+        this.alunoModel.countDocuments(filtro).exec()
       ]);
+
+    
     return{
            data,
            meta:{
