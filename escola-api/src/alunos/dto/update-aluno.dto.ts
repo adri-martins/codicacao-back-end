@@ -1,10 +1,9 @@
-import{PartialType} from '@nestjs/swagger';
-import { CreateAlunoDto } from './create-aluno-dto.js';
+import { PartialType } from '@nestjs/swagger';
+import { CreateAlunoDto } from './create-aluno.dto.js';
 
 export class UpdateAlunoDto extends PartialType(CreateAlunoDto) {
-  nome: string;
+    nome: string;
     idade: number;
-  matricula: string;
-  cursos: string[];
-
+    matricula: string;
+    cursos: string[];
 }

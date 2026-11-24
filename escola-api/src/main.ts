@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
-import { ValidationPipe } from '@nestjs/common';
+import { Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
@@ -12,16 +12,18 @@ async function bootstrap() {
     transform: true,
   }));
 
-  //! configuração do swagger
+  //! configuração do Swagger
   const config = new DocumentBuilder()
-    .setTitle('API Escola')
-    .setDescription('API para gerenciamento de alunos ')
-    .setVersion('1.0.0')
-    .build();
+  .setTitle('API Escola')
+  .setDescription('API para gerenciamento de alunos')
+  .setVersion('1.0.0')
+  .addTag('alunos')
+  .build();
 
-const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
   await app.listen(process.env.PORT ?? 3000);
+  Logger.log(`API escola rodando na porta ${await app.getUrl()}`, 'Port');
 }
 await bootstrap();
