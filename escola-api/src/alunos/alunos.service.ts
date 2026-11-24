@@ -1,4 +1,5 @@
 import { Injectable, 
+        Inject,
          NotFoundException,
          ConflictException,
          InternalServerErrorException,
@@ -11,11 +12,15 @@ import { UpdateAlunoDto } from "./dto/update-aluno.dto.js";
 import { Aluno, AlunoDocument } from "./schemas/aluno.schema.js";
 import { ConfigService } from "@nestjs/config";
 import { variaveisAmbiente } from "../config/env.config.js";
+import type { ConfigType } from "@nestjs/config";
+import databaseConfig from "../config/database.config.js";
 
 @Injectable()
 export class AlunosService {
     constructor(@InjectModel(Aluno.name) private alunoModel: Model<AlunoDocument>,
-    private readonly configService: ConfigService<variaveisAmbiente, true>){}
+    private readonly configService: ConfigService<variaveisAmbiente, true>,
+@Inject(databaseConfig.KEY) private dbconfig: ConfigType<typeof databaseConfig>){}
+
     configVariaveis(){
         const nodeEnv = this.configService.get('NODE_ENV', { infer: true });
         const port = this.configService.get('PORT', { infer: true });
